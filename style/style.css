@@ -2,14 +2,13 @@ body {
   display: flex;
   justify-content: center;
   height: 80vh;
-  
 }
+
 .main {
   max-width: 500px;
-  background-color: rgb(98, 138, 138);
+  background-color: #628a8a;
   border-radius: 15px;
-  overflow: hidden;
-  
+  overflow: hidden; 
 }
 
 #display {
@@ -17,10 +16,9 @@ body {
   padding: 5%;
   border: none;
   font-size: 2rem;
-  background-color: hsl(0, 0%, 50%);
+  background-color: #808080;
   color: white;
-  text-align: left;
-  
+  text-align: left;  
 }
 
 button {
@@ -28,7 +26,7 @@ button {
   width: 70px;
   border-radius: 50px;
   border: none;
-  background-color: hsl(0, 0%, 30%);
+  background-color: #4d4d4d;
   color: white;
   font-size: 3rem;
   font-weight: bold;
@@ -51,7 +49,7 @@ button:hover {
 }
 
 .plus {
-  background-color: orange; 
+  background-color: orange;
 }
 
 .minus {
@@ -62,6 +60,6 @@ button:hover {
   background-color: orange;
 }
 
-.clearDisplay {
+.cleardisplay {
   background-color: orange;
 }
