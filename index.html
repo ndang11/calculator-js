@@ -10,25 +10,27 @@
   <div class="main">
       <input id="display">
     <div class="keys">
-      <button class="plus">+</button>
-      <button onclick="display">7</button>
-      <button onclick="display">8</button>
-      <button onclick="display">9</button>
-      <button class="minus">-</button>
-      <button onclick="display">4</button>
-      <button onclick="display">5</button>
-      <button onclick="display">6</button>
-      <button class="multiply">*</button>
-      <button onclick="display">1</button>
-      <button onclick="display">2</button>
-      <button onclick="display">3</button>
-      <button class="divide">/</button>
-      <button onclick="display">0</button>
-      <button onclick="display">.</button>
-      <button onclick="calculate">=</button>
-      <button  onclick="clear">c</button>
-      <button  onclick="display">00</button>
+      <button onclick="appendToDisplay('+')" id="operator-btn">+</button>
+      <button onclick="appendToDisplay('7')">7</button>
+      <button onclick="appendToDisplay('8')">8</button>
+      <button onclick="appendToDisplay('9')">9</button>
+      <button onclick="appendToDisplay('-')" id="operator-btn">-</button>
+      <button onclick="appendToDisplay('4')">4</button>
+      <button onclick="appendToDisplay('5')">5</button>
+      <button onclick="appendToDisplay('6')">6</button>
+      <button onclick="appendToDisplay('*')" id="operator-btn">*</button>
+      <button onclick="appendToDisplay('1')">1</button>
+      <button onclick="appendToDisplay('2')">2</button>
+      <button onclick="appendToDisplay('3')">3</button>
+      <button onclick="divide()" id="operator-btn">/</button>
+      <button onclick="appendToDisplay('0')">0</button>
+      <button onclick="appendToDisplay('.')" id="operator-btn">.</button>
+      <button onclick="calculate('=')" id="operator-btn">=</button>
+      <button onclick="clearDisplay('c')" id="operator-btn">c</button>
+      <button onclick="appendToDisplay('00')"id="zero">00</button>
+      <button onclick="percentageDisplay('%')"id="operator-btn">%</button>
     </div>
   </div>
+  <script src="./script/function.js"></script>
 </body>
 </html>
