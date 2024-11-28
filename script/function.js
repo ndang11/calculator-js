@@ -6,8 +6,8 @@ function appendToDisplay(input){
   display.value += input;
 }
 
-function divide(){
-  display.value = "/";
+function percentageDisplay(){
+  display.value = "%";
 }
 
 function clearDisplay(){
