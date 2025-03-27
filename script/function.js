@@ -6,8 +6,14 @@ function appendToDisplay(input){
   display.value += input;
 }
 
-function percentageDisplay(){
-  display.value = "%";
+function percentageDisplay() {
+  try {
+    if (display.value !== "" && !display.value.includes("%")) {
+      display.value = eval(display.value) / 100;
+    }
+  } catch (error) {
+    display.value = "Error";
+  }
 }
 
 function clearDisplay(){
