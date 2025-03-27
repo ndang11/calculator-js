@@ -11,14 +11,21 @@ body {
   overflow: hidden;
 }
 
+input {
+  margin-top: 20px;
+  margin-left: 10px;
+  border-radius: 10px;
+}
+
 #display {
-  width: 100%;
+  width: 310px;
+  height: 20px;
   padding: 5%;
   border: none;
   font-size: 2rem;
   background-color: #808080;
   color: white;
-  text-align: left;
+  text-align: right;
 }
 
 button {
