@@ -42,7 +42,7 @@ function appendToDisplay (input) {
 function percentageDisplay () {
   try {
     if (display.value !== '') {
-      display.value = Function('return ' + display.value)()
+      display.value = evaluate(display.value) / 100
     }
   } catch (error) {
     display.value = 'Error'
@@ -60,9 +60,53 @@ function deleteChar () {
 function calculate () {
   try {
     if (display.value !== '') {
-      display.value = Function('return ' + display.value)()
+      display.value = evaluate(display.value)
     }
   } catch (error) {
     display.value = 'Error'
+  }
+}
+
+function evaluate (expr) {
+  expr = expr.replace(/\s+/g, '')
+  let result = 0
+  let currentNum = ''
+  let lastOperator = '+'
+  let hasValidNumber = false
+
+  for (let i = 0; i <= expr.length; i++) {
+    const char = expr[i]
+
+    if (char >= '0' && char <= '9' || char === '.') {
+      currentNum += char
+    } else if (char === '-' && currentNum === '') {
+      currentNum = '-'
+    } else if (char === '+' || char === '-' || char === '*' || char === '/' || i === expr.length) {
+      if (currentNum !== '') {
+        const num = parseFloat(currentNum)
+        if (isNaN(num)) throw new Error('Invalid number')
+        result = applyOperator(result, num, lastOperator)
+        lastOperator = char === undefined ? '+' : char
+        currentNum = ''
+        hasValidNumber = true
+      } else if (char !== undefined) {
+        lastOperator = char
+      }
+    }
+  }
+
+  if (!hasValidNumber) throw new Error('Empty expression')
+  return result
+}
+
+function applyOperator (a, b, op) {
+  switch (op) {
+    case '+': return a + b
+    case '-': return a - b
+    case '*': return a * b
+    case '/':
+      if (b === 0) throw new Error('Division by zero')
+      return a / b
+    default: return b
   }
 }
