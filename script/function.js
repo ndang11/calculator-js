@@ -77,7 +77,7 @@ function evaluate (expr) {
   for (let i = 0; i <= expr.length; i++) {
     const char = expr[i]
 
-    if (char >= '0' && char <= '9' || char === '.') {
+    if ((char >= '0' && char <= '9') || char === '.') {
       currentNum += char
     } else if (char === '-' && currentNum === '') {
       currentNum = '-'
