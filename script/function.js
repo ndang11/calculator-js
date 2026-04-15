@@ -1,8 +1,8 @@
 const display = document.getElementById('display')
 const buttons = document.querySelectorAll('button')
 
-buttons.forEach(button => {
-  button.addEventListener('click', () => {
+buttons.forEach(function (button) {
+  button.addEventListener('click', function () {
     const action = button.dataset.action
     const value = button.dataset.value
 
@@ -20,7 +20,7 @@ buttons.forEach(button => {
   })
 })
 
-document.addEventListener('keydown', (e) => {
+document.addEventListener('keydown', function (e) {
   const key = e.key
   if (key >= '0' && key <= '9') appendToDisplay(key)
   else if (key === '.') appendToDisplay('.')
@@ -32,35 +32,35 @@ document.addEventListener('keydown', (e) => {
   else if (key === 'Backspace') deleteChar()
 })
 
-function appendToDisplay(input) {
+function appendToDisplay (input) {
   if (display.value === 'Error') {
     display.value = ''
   }
   display.value += input
 }
 
-function percentageDisplay() {
+function percentageDisplay () {
   try {
     if (display.value !== '') {
-      display.value = eval(display.value) / 100
+      display.value = Function('return ' + display.value)()
     }
   } catch (error) {
     display.value = 'Error'
   }
 }
 
-function clearDisplay() {
+function clearDisplay () {
   display.value = ''
 }
 
-function deleteChar() {
+function deleteChar () {
   display.value = display.value.slice(0, -1)
 }
 
-function calculate() {
+function calculate () {
   try {
     if (display.value !== '') {
-      display.value = eval(display.value)
+      display.value = Function('return ' + display.value)()
     }
   } catch (error) {
     display.value = 'Error'
